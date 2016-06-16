@@ -23,8 +23,8 @@
 		{% if project.image.exists %}
 			<img src="{{ project._.image.fit(160,160) }}" class="img pull-right">
 		{% endif %}
-		<p>{{ project.content.brief | safe }}</p>
-		{% if project.content.extended %}
+		<p>{{ project.description | safe }}</p>
+		{% if project.userStories %}
 			<p class="read-more">
 				<a href="/portfolio/project/{{ project.slug }}">Read more...</a>
 			</p>
