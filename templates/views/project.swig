@@ -6,36 +6,37 @@
 			<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 				<article>
 					<p>
-						<a href="/blog">&larr; back to the blog</a>
+						<a href="/portfolio">&larr; back to portfolio</a>
 					</p>
 					<hr>
-					{% if not data.post %}
-						<h2>Invalid Post.</h2>
+					{% if not data.project %}
+						<h2>Invalid Project.</h2>
 					{% else %}
 						<header>
-							<h1>{{ data.post.title }}</h1>
-							<h5>Posted</h5>
-							{% if data.post.publishedDate %}
-								on {{ data.post._.publishedDate.format("MMMM Do, YYYY") }}
+							<h1>{{ data.project.title }}</h1>
+							<h5>Posted
+							{% if data.project.publishedDate %}
+								on {{ data.project._.publishedDate.format("MMMM Do, YYYY") }}
 							{% endif %}
-							{% if data.post.categories and data.post.categories.length %}
+							{% if data.project.languages and data.project.languages.length %}
 								in
-								{% for cat in data.post.categories %}
-									<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>
-									{% if loop.index < data.post.categories.length - 1 %}, {% endif %}
+								{% for lang in data.project.langugaes %}
+									<a href="/portfolio/{{ lang.key }}">{{ lang.name }}</a>
+									{% if loop.index < data.project.languages.length - 1 %}, {% endif %}
 								{% endfor %}
 							{% endif %}
-							{% if data.post.author %}
-								by {{ data.post.author.name.first }}
+							{% if data.project.author %}
+								by {{ data.project.author.name.first }}
 							{% endif %}
+							</h5>
 						</header>
 						<div class="post">
-							{% if data.post.image.exists %}
+							{% if data.project.image.exists %}
 								<div class="image-wrap">
-									<img src="{{ data.post._.image.fit(750,450) }}" class="img-responsive">
+									<img src="{{ data.project._.image.fit(750,450) }}" class="img-responsive">
 								</div>
 							{% endif %}
-							{{ data.post.content.full | raw }}
+							{{ data.project.content.full | raw }}
 						</div>
 					{% endif %}
 				</article>

@@ -7,17 +7,17 @@
 		</h2>
 		<p class="lead text-muted">Posted
 			{% if project.publishedDate %}
-				<br>on {{ project._.publishedDate.format("MMMM Do, YYYY") }}
+				on {{ project._.publishedDate.format("MMMM Do, YYYY") }}
 			{% endif %}
 			{% if project.languages and project.langugaes.length %}
-				<br>in
+				in
 				{% for lang in project.languages %}
 					<a href="/portfolio/{{ lang.key }}">{{ lang.name }}</a>
 					{% if loop.index < project.languages.length - 1 %}, {% endif %}
 				{% endfor %}
 			{% endif %}
 			{% if project.author %}
-				<br>by {{ project.author.name.first }}
+				by {{ project.author.name.first }}
 			{% endif %}
 		</p>
 		{% if project.image.exists %}

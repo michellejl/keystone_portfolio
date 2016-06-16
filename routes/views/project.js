@@ -17,19 +17,21 @@ exports = module.exports = function (req, res) {
 	// Load the current post
 	view.on('init', function (next) {
 
-		var q = keystone.list('Post').model.findOne({
+		var q = keystone.list('Project').model.findOne({
 			state: 'published',
 			slug: locals.filters.project
-		}).populate('author categories');
+		}).populate('author languages');
 
 		q.exec(function (err, result) {
 			locals.data.project = result;
+			
 			next(err);
 		});
 
 	});
 
 	// Load other posts
+	/*
 	view.on('init', function (next) {
 
 		var q = keystone.list('Project').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
@@ -40,6 +42,7 @@ exports = module.exports = function (req, res) {
 		});
 
 	});
+	*/
 
 	// Render the view
 	view.render('project');
