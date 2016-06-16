@@ -9,7 +9,7 @@
 			{% if project.publishedDate %}
 				on {{ project._.publishedDate.format("MMMM Do, YYYY") }}
 			{% endif %}
-			{% if project.languages and project.langugaes.length %}
+			{% if project.languages and project.languages.length %}
 				in
 				{% for lang in project.languages %}
 					<a href="/portfolio/{{ lang.key }}">{{ lang.name }}</a>
@@ -116,7 +116,7 @@
 				<h2>Languages</h2>
 				<div class="list-group" style="margin-top: 70px;">
 					<a href="/portfolio/" class="{% if not data.language %}active{% endif %} list-group-item">All Languages</a>
-					{% for lang in data.langugaes %}
+					{% for lang in data.languages %}
 						<a href="/portfolio/{{ lang.key }}" class="{% if data.language and data.language.id == lang.id %}active{% endif %} list-group-item">{{ lang.name }}</a>
 					{% endfor %}
 				</div>
