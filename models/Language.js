@@ -14,5 +14,6 @@ Language.add({
 });
 
 Language.relationship({ ref: 'Project', path: 'language' });
+Language.relationship({ ref: 'Entry', path: 'entry' });
 
 Language.register();
