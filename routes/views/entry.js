@@ -30,6 +30,7 @@ exports = module.exports = function (req, res) {
 	});
 
 	// Load other entries
+	/*
 	view.on('init', function (next) {
 
 		var q = keystone.list('Entry').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
@@ -40,6 +41,7 @@ exports = module.exports = function (req, res) {
 		});
 
 	});
+	*/
 
 	// Render the view
 	view.render('entry');
