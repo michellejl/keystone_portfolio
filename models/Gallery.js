@@ -1,20 +1,18 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var Base = require('./Base');
 
 /**
  * Gallery Model
  * =============
  */
 
-var Gallery = new keystone.List('Gallery', {
-	autokey: { from: 'name', path: 'key', unique: true },
-});
+var Gallery = new keystone.List('Gallery', { inherits: Base });
 
 Gallery.add({
-	name: { type: String, required: true },
-	publishedDate: { type: Date, default: Date.now },
 	heroImage: { type: Types.CloudinaryImage },
-	images: { type: Types.CloudinaryImages },
+	images: { type: Types.CloudinaryImages }
 });
 
+Gallery.schema.statics.view_name = 'gallery';
 Gallery.register();
