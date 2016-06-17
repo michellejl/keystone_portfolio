@@ -26,11 +26,22 @@
 						</header>
 						
 						<div class="post">
-							{% if data.project.image.exists %}
+							{% if data.project.codePen %}
+								{{ data.project.codePen | raw }}
+							{% elseif data.project.image.exists %}	
 								<div class="image-wrap">
 									<img src="{{ data.project._.image.fit(750,450) }}" class="img-responsive">
 								</div>
 							{% endif %}
+
+							{% if data.project.links.github %}
+								<a href="{{ data.project.links.github }}">GitHub</a>
+							{% endif %}
+							{% if data.project.links.demo %}
+								<a href="{{ data.project.links.demo }}">Demo</a>
+							{% endif %}
+							
+							
 							{{ data.project.description | raw }}
 							<p>User Stories:</p>
 							{{ data.project.userStories | raw }}
@@ -39,7 +50,7 @@
 								Languages / Tools Used: 
 								{% for lang in data.project.languages %}
 									<a href="/portfolio/{{ lang.key }}">{{ lang.name }}</a>
-									{% if loop.index < data.project.languages.length - 1 %}, {% endif %}
+									{% if loop.index < data.project.languages.length - 1 %} {% endif %}
 								{% endfor %}
 							{% endif %}
 						</div>

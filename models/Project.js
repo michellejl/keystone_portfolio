@@ -17,8 +17,13 @@ Project.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	image: { type: Types.CloudinaryImage },
+	codePen: { type: Types.Html, wysiwyg: true, height: 150},
+	links: {
+		github: { type: String },
+		demo: { type: String }
+	},
 	description: { type: Types.Html, wysiwyg: true, height: 150 },
-	userStories: { type: Types.Html, wysiwyg: true, height: 400 },
+	userStories: { type: Types.Html, wysiwyg: true, height: 150 },
 	languages: { type: Types.Relationship, ref: 'Language', many: true }
 });
 
