@@ -113,9 +113,9 @@
 			</div>
 			{% if data.languages.length %}
 			<div class="col-sm-4 col-md-3">
-				<h2>Languages</h2>
+				<h2>Skills and Tools</h2>
 				<div class="list-group" style="margin-top: 70px;">
-					<a href="/portfolio/" class="{% if not data.language %}active{% endif %} list-group-item">All Languages</a>
+					<a href="/portfolio/" class="{% if not data.language %}active{% endif %} list-group-item">All</a>
 					{% for lang in data.languages %}
 						<a href="/portfolio/{{ lang.key }}" class="{% if data.language and data.language.id == lang.id %}active{% endif %} list-group-item">{{ lang.name }}</a>
 					{% endfor %}

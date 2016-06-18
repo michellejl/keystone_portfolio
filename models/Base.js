@@ -2,6 +2,7 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var Base = new keystone.List('Base', {
+	// hidden: true,
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true }
 });
