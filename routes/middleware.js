@@ -21,7 +21,6 @@ exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
 		{ label: 'Portfolio', key: 'portfolio', href: '/portfolio' },
-		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
 		{ label: 'Journal', key: 'journal', href: '/journal' },
 		{ label: 'Blog', key: 'blog', href: '/blog' },
 		{ label: 'Contact', key: 'contact', href: '/contact' }
@@ -39,7 +38,7 @@ exports.flashMessages = function (req, res, next) {
 		info: req.flash('info'),
 		success: req.flash('success'),
 		warning: req.flash('warning'),
-		error: req.flash('error'),
+		error: req.flash('error')
 	};
 	res.locals.messages = _.any(flashMessages, function (msgs) { return msgs.length; }) ? flashMessages : false;
 	next();

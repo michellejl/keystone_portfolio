@@ -3,7 +3,7 @@ var Types = keystone.Field.Types;
 
 var Base = new keystone.List('Base', {
 	map: { name: 'title' },
-	autokey: { path: 'slug', from: 'title', unique: true },
+	autokey: { path: 'slug', from: 'title', unique: true }
 });
 Base.add({
 	title: { type: String, required: true },

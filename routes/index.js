@@ -42,7 +42,6 @@ exports = module.exports = function (app) {
 	app.get('/journal/entry/:entry', routes.views.entry);
 	app.get('/portfolio/:language?', routes.views.portfolio);
 	app.get('/portfolio/project/:project', routes.views.project);
-	app.get('/gallery', routes.views.gallery);
 	app.get('/:slug', router);
 	app.all('/contact', routes.views.contact);
 
