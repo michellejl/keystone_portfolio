@@ -6,7 +6,7 @@
 			<h1>{{ data.page.title }}</h1>
 		</header>
 		
-		{{ data.page.content.extended | raw }}
+		{{ data.page.content | raw }}
 		
 	</div>
 {% endblock %}

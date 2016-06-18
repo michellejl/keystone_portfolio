@@ -10,10 +10,7 @@ var Page = new keystone.List('Page', { inherits: Base });
 
 Page.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
-	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, height: 400 }
-	}
+	content: { type: Types.Html, wysiwyg: true, height: 400 }
 });
 
 Page.schema.virtual('content.full').get(function () {
