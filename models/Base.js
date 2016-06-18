@@ -9,7 +9,7 @@ Base.add({
 	title: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	slug: { type: String, readonly: true },
-	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
+	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } }
 });
 Base.register();
 
