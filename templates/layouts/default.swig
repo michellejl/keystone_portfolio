@@ -35,71 +35,80 @@
 		{%- block head %}{% endblock %}
 	</head>
 	<body>
-
-		{# HEADER #}
-		<div id="header">
-			<header>
-				<h1><a href="/">Michelle J. Levine</a></h1><br />
-				<h2>Web Developer</h2><br />
-				<span class="contact-item">
-					<a href="mailto:michellejl@live.com">michellejl@live.com</a>
-				</span>
-				<span class="contact-item">
-					<a href="https://github.com/michellejl" target="_blank">github.com/michellejl</a>
-				</span>
-				<span class="contact-item">
-					<a href="https://www.linkedin.com/in/michellejl" target="_blank">linkedin.com/in/michellejl</a>
-				</span>
-			</header>
-			
-			
-			{# Customise your site"s navigation by changing the navLinks Array in ./routes/middleware.js
-			   ... or completely change this header to suit your design. #}
-			<div role="navigation" class="navbar">
-				<ul class="nav navbar-nav navbar-left">
-					{%- for link in navLinks -%}
-						{%- set linkClass = '' -%}
-						{%- if link.key == section -%}
-							{%- set linkClass = ' class="active"' -%}
-						{%- endif %}
-						<li{{ linkClass | safe }}>
-							<a href="{{ link.href }}">{{ link.label }}</a>
-						</li>
-					{%- endfor %}
-				</ul>
+		<div id="main">
+			{# HEADER #}
+			<div id="header">
+				<header>
+					<h1><a href="/">Michelle J. Levine</a></h1><br />
+					<h2>Web Developer</h2><br />
+					<span class="contact-item">
+						<a href="mailto:michellejl@live.com">michellejl@live.com</a>
+					</span>
+					<span class="contact-item">
+						<a href="https://github.com/michellejl" target="_blank">github.com/michellejl</a>
+					</span>
+					<span class="contact-item">
+						<a href="https://www.linkedin.com/in/michellejl" target="_blank">linkedin.com/in/michellejl</a>
+					</span>
+				</header>
+				
+				
+				{# Customise your site"s navigation by changing the navLinks Array in ./routes/middleware.js
+				   ... or completely change this header to suit your design. #}
+				<div role="navigation" class="navbar">
+					<ul class="nav navbar-nav navbar-left">
+						{%- for link in navLinks -%}
+							{%- set linkClass = '' -%}
+							{%- if link.key == section -%}
+								{%- set linkClass = ' class="active"' -%}
+							{%- endif %}
+							<li{{ linkClass | safe }}>
+								<a href="{{ link.href }}">{{ link.label }}</a>
+							</li>
+						{%- endfor %}
+					</ul>
+				</div>
+			</div>
+	
+			{# BODY #}
+			<div id="body">
+				{# NOTE:
+				   There is no .container wrapping class around body blocks to allow more flexibility in design.
+				   Remember to include it in your templates when you override the intro and content blocks! #}
+	
+				{# The Intro block appears above flash messages (used for temporary information display) #}
+				{%- block intro -%}{%- endblock -%}
+	
+				{# Flash messages allow you to display once-off status messages to users, e.g. form
+				   validation errors, success messages, etc. #}
+				{{ FlashMessages.renderMessages(messages) }}
+	
+				{# The content block should contain the body of your template"s content #}
+				{%- block content -%}{%- endblock -%}
 			</div>
 		</div>
 
-		{# BODY #}
-		<div id="body">
-			{# NOTE:
-			   There is no .container wrapping class around body blocks to allow more flexibility in design.
-			   Remember to include it in your templates when you override the intro and content blocks! #}
-
-			{# The Intro block appears above flash messages (used for temporary information display) #}
-			{%- block intro -%}{%- endblock -%}
-
-			{# Flash messages allow you to display once-off status messages to users, e.g. form
-			   validation errors, success messages, etc. #}
-			{{ FlashMessages.renderMessages(messages) }}
-
-			{# The content block should contain the body of your template"s content #}
-			{%- block content -%}{%- endblock -%}
-		</div>
-
 		{# FOOTER #}
-		<div id="footer" class="container">
-			{% if user -%}
-				{%- if user.canAccessKeystone -%}
-					<a href="/keystone">Open Keystone</a>
-				{%- endif -%}
-				<a href="/keystone/signout">Sign Out</a>
-			{%- else -%}
-				<a href="/keystone/signin">Sign In</a>
-			{%- endif %}
-			
-			
-			
+		<div id="footer">
+			<div class="container">
+				<div id="left">
+					&nbsp;
+				</div>
+				<div id="center">
+					<p>&copy; 2016 MichelleJL</p>
+					<p><a href="mailto:michellejl@live.com">michellejl@live.com</a></p>
+				</div>
+				<div id="right">
+					{% if user -%}
+						{%- if user.canAccessKeystone -%}
+							<a href="/keystone">Open Keystone</a>
+						{%- endif -%}
+						<a href="/keystone/signout">Sign Out</a>
+					{%- else -%}
+						<a href="/keystone/signin">Sign In</a>
+					{%- endif %}
+				</div>
+			</div>
 		</div>
 
 		{# JAVASCRIPT #}

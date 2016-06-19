@@ -1,7 +1,12 @@
 body {
   font-family: 'Maven Pro', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Josefin Slab', serif;
+}
+
+h2 {
+  border-bottom: 2px solid $dark-grey;
+  margin-bottom: 5px;
 }
