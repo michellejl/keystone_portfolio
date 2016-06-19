@@ -1,21 +1,25 @@
 .post {
-  @include span-columns(9);
   .data {
 	font-size: .9em;
 	text-align: right;
+	padding: 5px 0;
   }
   p {
 	margin-bottom: 10px;
   }
+  img.img {
+	max-width: 100%;
+  }
 }
 
 .thumb {
-  @include span-columns(3);
   a {
 	background: $mjl_blue;
 	color: #fff;
 	border-radius: 5px;
+	display: inline-block;
 	padding: 5px;
+	margin: 10px 2px;
 	&:hover {
 	  background: $mjl_green;
 	}
@@ -30,5 +34,12 @@ a.skill {
   color: #fff;
   &:hover {
 	background: $mjl_green;
+  }
+}
+.portfolio {
+  @include outer-container;
+  li.block {
+	@include span-columns(4);
+	@include omega(3n);
   }
 }

@@ -8,7 +8,7 @@
 		</h2>
 		<div class="thumb">
 			{% if project.image.exists %}
-				<img src="{{ project._.image.fit(250,250) }}" class="img"><br />
+				<img src="{{ project._.image.fit(500,500) }}" class="img"><br />
 			{% endif %}
 			Skills: 
 			{% if project.languages and project.languages.length %}
@@ -17,6 +17,7 @@
 				{% endfor %}
 			{% endif %}
 		</div>
+		<hr />
 		<div class="post" data-ks-editable="editable(user, { list: 'Project', id: project.id })">
 			<p class="data">Posted
 				{% if project.publishedDate %}
@@ -49,6 +50,7 @@
 	<div class="container">
 
 		{% if data.languages.length %}
+			<a href="/portfolio/" class="skill {% if not data.language %}active{% endif %} list-group-item">All</a>
 			{% for lang in data.languages %}
 				<a href="/portfolio/{{ lang.key }}" class="skill {% if data.language and data.language.id == lang.id %}active{% endif %} list-group-item">{{ lang.name }}</a>
 			{% endfor %}
@@ -72,10 +74,13 @@
 					<h4 class="text-weight-normal">Showing {{ utils.plural(data.projects.results.length, "* project") }}.</h4>
 					--->
 				{% endif %}
-				<div class="blog">
-					{% for project in data.projects.results %}
-						{{ showProject(project) }}
-					{% endfor %}
+				<div class="portfolio">
+					<ul>
+						{% for project in data.projects.results %}
+							<li class="block">{{ showProject(project) }}</li>
+						{% endfor %}
+					</ul>
+					
 				</div>
 				{% if data.project.totalPages > 1 %}
 					<ul class="pagination">
