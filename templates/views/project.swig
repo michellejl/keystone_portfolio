@@ -2,63 +2,59 @@
 
 {% block content %}
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-				<article>
-					<p>
-						<a href="/portfolio">&larr; back to portfolio</a>
-					</p>
-					<hr>
-					{% if not data.project %}
-						<h2>Invalid Project.</h2>
-					{% else %}
-						<header>
-							<h1>{{ data.project.title }}</h1>
-							<h5>Posted
-							{% if data.project.publishedDate %}
-								on {{ data.project._.publishedDate.format("MMMM Do, YYYY") }}
-							{% endif %}
-							
-							{% if data.project.author %}
-								by {{ data.project.author.name.first }}
-							{% endif %}
-							</h5>
-						</header>
+		<p>
+			<a href="/portfolio" class="white">&larr; back to portfolio</a>
+		</p>
+		{% if not data.project %}
+			<h2>Invalid Project.</h2>
+		{% else %}
+			<header>
+				<h1>{{ data.project.title }}</h1><br />
+				<h5>Posted
+				{% if data.project.publishedDate %}
+					on {{ data.project._.publishedDate.format("MMMM Do, YYYY") }}
+				{% endif %}
+				
+				{% if data.project.author %}
+					by {{ data.project.author.name.first }}
+				{% endif %}
+				</h5>
+			</header>
 						
-						<div class="post">
-							{% if data.project.codePen %}
-								{{ data.project.codePen | raw }}
-							{% elseif data.project.image.exists %}	
-								<div class="image-wrap">
-									<img src="{{ data.project._.image.fit(750,450) }}" class="img-responsive">
-								</div>
-							{% endif %}
+			<div class="post brick">
+				{% if data.project.codePen %}
+					{{ data.project.codePen | raw }}
+				{% elseif data.project.image.exists %}	
+					<div class="image-wrap">
+						<img src="{{ data.project._.image.fit(750,450) }}" />
+					</div>
+				{% endif %}
 
-							{% if data.project.links.github %}
-								<a href="{{ data.project.links.github }}">GitHub</a>
-							{% endif %}
-							{% if data.project.links.demo %}
-								<a href="{{ data.project.links.demo }}">Demo</a>
-							{% endif %}
-							
-							
-							{{ data.project.description.long | raw }}
-							<p>User Stories:</p>
-							{{ data.project.userStories | raw }}
+				{% if data.project.languages and data.project.languages.length %}
+					<h2>Languages / Tools Used:</h2>
+					{% for lang in data.project.languages %}
+						<a href="/portfolio/{{ lang.key }}" class="skill">{{ lang.name }}</a>
+						{% if loop.index < data.project.languages.length - 1 %} {% endif %}
+					{% endfor %}
+				{% endif %}
 
-							{% if data.project.languages and data.project.languages.length %}
-								Languages / Tools Used: 
-								{% for lang in data.project.languages %}
-									<a href="/portfolio/{{ lang.key }}">{{ lang.name }}</a>
-									{% if loop.index < data.project.languages.length - 1 %} {% endif %}
-								{% endfor %}
-							{% endif %}
+				<h2>User Stories:</h2>
+				{{ data.project.userStories | raw }}
+				<h2>Project Description:</h2>
+				{{ data.project.description.long | raw }}
+				
+
+				{% if data.project.links.github %}
+					<a href="{{ data.project.links.github }}" class="btn">GitHub</a>
+				{% endif %}
+				{% if data.project.links.demo %}
+					<a href="{{ data.project.links.demo }}" class="btn">Demo</a>
+				{% endif %}
+
+				
 						</div>
 						
 					{% endif %}
-				</article>
-			</div>
-		</div>
 	</div>
 {% endblock %}
 

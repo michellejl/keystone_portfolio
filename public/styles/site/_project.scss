@@ -7,3 +7,16 @@ header h5 {
   padding: 2px;
   display: inline-block;
 }
+
+.post {
+  img {
+	display: block;
+	margin: 10px auto;
+  }
+  ol, ul {
+	margin-left: 50px;
+  }
+  h2 {
+	margin-top: 50px;
+  }
+}

@@ -212,3 +212,13 @@ header h5 {
   border: 2px solid #333;
   padding: 2px;
   display: inline-block; }
+
+.post img {
+  display: block;
+  margin: 10px auto; }
+
+.post ol, .post ul {
+  margin-left: 50px; }
+
+.post h2 {
+  margin-top: 50px; }
