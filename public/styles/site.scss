@@ -1,4 +1,4 @@
-@import "site/variables";
+@import 'site/variables';
 
 // Bourbon Bits
 // ============
@@ -11,4 +11,5 @@
 // ===========
 
 // Add your own site style includes here
-@import "site/layout";
+@import 'site/nav';
+@import 'site/layout';

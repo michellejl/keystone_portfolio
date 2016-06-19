@@ -9,6 +9,9 @@
 
 		<title>{{ title|default("MichelleJL Portfolio") }}</title>
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		
+		<!-- Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700|Maven+Pro' rel='stylesheet' type='text/css'>
 
 		{# Customise the stylesheet for your site by editing /public/styles/site.sass #}
 		<link href="/styles/site.css" rel="stylesheet">
@@ -34,57 +37,36 @@
 	<body>
 
 		{# HEADER #}
-		<div id="header" class="container">
+		<div id="header">
+			<header>
+				<h1><a href="/">Michelle J. Levine</a></h1><br />
+				<h2>Web Developer</h2><br />
+				<span class="contact-item">
+					<a href="mailto:michellejl@live.com">michellejl@live.com</a>
+				</span>
+				<span class="contact-item">
+					<a href="https://github.com/michellejl" target="_blank">github.com/michellejl</a>
+				</span>
+				<span class="contact-item">
+					<a href="https://www.linkedin.com/in/michellejl" target="_blank">linkedin.com/in/michellejl</a>
+				</span>
+			</header>
 			
-			<h1>Michelle J. Levine</h1>
-			<h2>Web Developer</h2>
-			<span class="contact-item">
-				<a href="mailto:michellejl@live.com">michellejl@live.com</a>
-			</span>
-			<span class="contact-item">
-				<a href="https://github.com/michellejl" target="_blank">github.com/michellejl</a>
-			</span>
-			<span class="contact-item">
-				<a href="https://www.linkedin.com/in/michellejl" target="_blank">linkedin.com/in/michellejl</a>
-			</span>
 			
 			{# Customise your site"s navigation by changing the navLinks Array in ./routes/middleware.js
 			   ... or completely change this header to suit your design. #}
-			<div role="navigation" class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="/">MichelleJL Portfolio</a>
-					</div>
-					<div class="collapse navbar-collapse">
-						<ul class="nav navbar-nav navbar-left">
-							{%- for link in navLinks -%}
-								{%- set linkClass = '' -%}
-								{%- if link.key == section -%}
-									{%- set linkClass = ' class="active"' -%}
-								{%- endif %}
-								<li{{ linkClass | safe }}>
-									<a href="{{ link.href }}">{{ link.label }}</a>
-								</li>
-							{%- endfor %}
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							{% if user -%}
-								{%- if user.canAccessKeystone -%}
-									<li><a href="/keystone">Open Keystone</a></li>
-								{%- endif -%}
-								<li><a href="/keystone/signout">Sign Out</a></li>
-							{%- else -%}
-								<li><a href="/keystone/signin">Sign In</a></li>
-							{%- endif %}
-						</ul>
-					</div>
-				</div>
+			<div role="navigation" class="navbar">
+				<ul class="nav navbar-nav navbar-left">
+					{%- for link in navLinks -%}
+						{%- set linkClass = '' -%}
+						{%- if link.key == section -%}
+							{%- set linkClass = ' class="active"' -%}
+						{%- endif %}
+						<li{{ linkClass | safe }}>
+							<a href="{{ link.href }}">{{ link.label }}</a>
+						</li>
+					{%- endfor %}
+				</ul>
 			</div>
 		</div>
 
@@ -107,8 +89,17 @@
 
 		{# FOOTER #}
 		<div id="footer" class="container">
-			{# You don"t _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it! #}
-			<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
+			{% if user -%}
+				{%- if user.canAccessKeystone -%}
+					<a href="/keystone">Open Keystone</a>
+				{%- endif -%}
+				<a href="/keystone/signout">Sign Out</a>
+			{%- else -%}
+				<a href="/keystone/signin">Sign In</a>
+			{%- endif %}
+			
+			
+			
 		</div>
 
 		{# JAVASCRIPT #}

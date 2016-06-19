@@ -3,3 +3,50 @@ html {
 
 *, *::after, *::before {
   box-sizing: inherit; }
+
+a {
+  text-decoration: none; }
+  a:link, a:active, a:visited {
+    color: #333; }
+
+body {
+  font-family: 'Maven Pro', sans-serif;
+  background: url("https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=83013835f95ea816f46437d771d86a7b");
+  background-attachment: fixed;
+  background-size: cover; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Slab', serif; }
+
+header {
+  text-align: center;
+  border-top: 8px solid #fff;
+  border-bottom: 8px solid #fff;
+  padding: 30px 0 15px; }
+  header h1, header h2 {
+    margin: 5px;
+    padding: 2px;
+    background: #fff;
+    display: inline-block; }
+  header h1 {
+    font-size: 4em; }
+    header h1 a {
+      color: #5271A4 !important; }
+  header h2 {
+    color: #6E9153;
+    font-size: 3em;
+    margin-bottom: 30px; }
+  header .contact-item {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 5%; }
+    header .contact-item a {
+      color: #fff; }
+
+#body .container {
+  background: rgba(255, 255, 255, 0.9); }
+
+.container {
+  width: 75%;
+  margin: 0 auto;
+  padding: 20px; }
