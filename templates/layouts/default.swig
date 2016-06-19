@@ -35,7 +35,19 @@
 
 		{# HEADER #}
 		<div id="header" class="container">
-
+			
+			<h1>Michelle J. Levine</h1>
+			<h2>Web Developer</h2>
+			<span class="contact-item">
+				<a href="mailto:michellejl@live.com">michellejl@live.com</a>
+			</span>
+			<span class="contact-item">
+				<a href="https://github.com/michellejl" target="_blank">github.com/michellejl</a>
+			</span>
+			<span class="contact-item">
+				<a href="https://www.linkedin.com/in/michellejl" target="_blank">linkedin.com/in/michellejl</a>
+			</span>
+			
 			{# Customise your site"s navigation by changing the navLinks Array in ./routes/middleware.js
 			   ... or completely change this header to suit your design. #}
 			<div role="navigation" class="navbar navbar-default">
