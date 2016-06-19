@@ -42,7 +42,7 @@
 							{% endif %}
 							
 							
-							{{ data.project.description | raw }}
+							{{ data.project.description.long | raw }}
 							<p>User Stories:</p>
 							{{ data.project.userStories | raw }}
 

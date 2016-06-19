@@ -18,11 +18,9 @@ img {
 }
 
 #body {
-  .content {
-  }
   .row {
 	@include outer-container;
-	.brick {
+	#intro-portfolio, #intro-journal {
 	  @include span-columns(6);
 	}
 	#intro {
@@ -33,7 +31,7 @@ img {
 	background: rgba(255,255,255,.9);
 	margin: 10px 0;
 	padding: 20px;
-	a {
+	a.btn {
 	  border: 3px solid $mjl_blue;
 	  border-radius: 5px;
 	  padding: 10px;

@@ -1,0 +1,34 @@
+.post {
+  @include span-columns(9);
+  .data {
+	font-size: .9em;
+	text-align: right;
+  }
+  p {
+	margin-bottom: 10px;
+  }
+}
+
+.thumb {
+  @include span-columns(3);
+  a {
+	background: $mjl_blue;
+	color: #fff;
+	border-radius: 5px;
+	padding: 5px;
+	&:hover {
+	  background: $mjl_green;
+	}
+  }
+}
+
+a.skill {
+  display: inline-block;
+  margin: 10px 5px 5px 0;
+  padding: 5px;
+  background: $mjl_blue;
+  color: #fff;
+  &:hover {
+	background: $mjl_green;
+  }
+}

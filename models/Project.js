@@ -18,7 +18,10 @@ Project.add({
 		github: { type: String },
 		demo: { type: String }
 	},
-	description: { type: Types.Html, wysiwyg: true, height: 150 },
+	description: {
+		long: {type: Types.Html, wysiwyg: true, height: 250},
+		short: {type: Types.Html, wysiwyg: true, height: 150}
+	},
 	userStories: { type: Types.Html, wysiwyg: true, height: 150 },
 	languages: { type: Types.Relationship, ref: 'Language', many: true }
 });

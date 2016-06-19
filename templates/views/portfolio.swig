@@ -1,35 +1,38 @@
 {% extends "../layouts/default.swig" %}
 
+	
 {% macro showProject(project) %}
-	<div class="post" data-ks-editable="editable(user, { list: 'Project', id: project.id })">
+	<div class="row brick">
 		<h2>
 			<a href="/portfolio/project/{{ project.slug }}">{{ project.title }}</a>
 		</h2>
-		<p class="lead text-muted">Posted
-			{% if project.publishedDate %}
-				on {{ project._.publishedDate.format("MMMM Do, YYYY") }}
+		<div class="thumb">
+			{% if project.image.exists %}
+				<img src="{{ project._.image.fit(250,250) }}" class="img"><br />
 			{% endif %}
+			Skills: 
 			{% if project.languages and project.languages.length %}
-				in
 				{% for lang in project.languages %}
 					<a href="/portfolio/{{ lang.key }}">{{ lang.name }}</a>
-					{% if loop.index < project.languages.length - 1 %}, {% endif %}
 				{% endfor %}
 			{% endif %}
-			{% if project.author %}
-				by {{ project.author.name.first }}
-			{% endif %}
-		</p>
-		{% if project.image.exists %}
-			<img src="{{ project._.image.fit(160,160) }}" class="img pull-right">
-		{% endif %}
-		<p>{{ project.description | safe }}</p>
-		{% if project.userStories %}
-			<p class="read-more">
-				<a href="/portfolio/project/{{ project.slug }}">Read more...</a>
+		</div>
+		<div class="post" data-ks-editable="editable(user, { list: 'Project', id: project.id })">
+			<p class="data">Posted
+				{% if project.publishedDate %}
+					on {{ project._.publishedDate.format("MMMM Do, YYYY") }}
+				{% endif %}
+				
 			</p>
-		{% endif %}
+			
+			<p>{{ project.description.short | safe }}</p>
+			<p class="read-more">
+				<a href="/portfolio/project/{{ project.slug }}" class="btn">Read more...</a>
+			</p>
+		</div>
+		
 	</div>
+	
 {% endmacro %}
 
 {% block intro %}
@@ -44,84 +47,78 @@
 
 {% block content %}
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-8 col-md-9">
-				{% if filters.language and not data.language %}
-					<h3 class="text-muted">Invalid Language.</h3>
+
+		{% if data.languages.length %}
+			{% for lang in data.languages %}
+				<a href="/portfolio/{{ lang.key }}" class="skill {% if data.language and data.language.id == lang.id %}active{% endif %} list-group-item">{{ lang.name }}</a>
+			{% endfor %}
+		{% endif %}
+			
+		{% if filters.language and not data.language %}
+			<h3 class="text-muted">Invalid Language.</h3>
+		{% else %}
+			{% if data.projects.results.length %}
+				{% if data.projects.totalPages > 1 %}
+					<h4 class="text-weight-normal">Showing 
+						<strong>{{ data.projects.first }}</strong>
+						to 
+						<strong>{{ data.projects.last }}</strong>
+						of 
+						<strong>{{ data.projects.total }}</strong>
+						projects.
+					</h4>
 				{% else %}
-					{% if data.projects.results.length %}
-						{% if data.projects.totalPages > 1 %}
-							<h4 class="text-weight-normal">Showing 
-								<strong>{{ data.projects.first }}</strong>
-								to 
-								<strong>{{ data.projects.last }}</strong>
-								of 
-								<strong>{{ data.projects.total }}</strong>
-								projects.
-							</h4>
-						{% else %}
-							<h4 class="text-weight-normal">Showing {{ utils.plural(data.projects.results.length, "* project") }}.</h4>
-						{% endif %}
-						<div class="blog">
-							{% for project in data.projects.results %}
-								{{ showProject(project) }}
-							{% endfor %}
-						</div>
-						{% if data.project.totalPages > 1 %}
-							<ul class="pagination">
-								{% if data.projects.previous %}
-									<li>
-										<a href="?page={{ data.projects.previous }}">
-											<span class="glyphicon glyphicon-chevron-left"></span>
-										</a>
-									</li>
-								{% else %}
-									<li class="disabled">
-										<a href="?page=1">
-											<span class="glyphicon glyphicon-chevron-left"></span>
-										</a>
-									</li>
-                                                                {% endif %}
-									{% for p in data.projects.pages %}
-										<li class="{% if data.projects.currentPage == p %}active{% endif %}">
-											<a href="?page={% if p == "..." %}{% if i %}{{ data.projects.totalPages }}{% else %}1{% endif %}{% else %}{{ p }}{% endif %}">{{ p }}</a>
-										</li>
-									{% endfor %}
-								{% if data.projects.next %}
-									<li>
-										<a href="?page={{ data.projects.next }}">
-											<span class="glyphicon glyphicon-chevron-right"></span>
-										</a>
-									</li>
-								{% else %}
-									<li class="disabled">
-										<a href="?page={{ data.projects.totalPages }}">
-											<span class="glyphicon glyphicon-chevron-right"></span>
-										</a>
-									</li>
-								{% endif %}
-							</ul>
-						{% endif %}
-					{% else %}
-						{% if data.language %}
-							<h3 class="text-muted">There are no projects in the category {{ data.language.name }}.</h3>
-						{% else %}
-							<h3 class="text-muted">There are no projects yet.</h3>
-						{% endif %}
-					{% endif %}
+					<!---
+					<h4 class="text-weight-normal">Showing {{ utils.plural(data.projects.results.length, "* project") }}.</h4>
+					--->
 				{% endif %}
-			</div>
-			{% if data.languages.length %}
-			<div class="col-sm-4 col-md-3">
-				<h2>Skills and Tools</h2>
-				<div class="list-group" style="margin-top: 70px;">
-					<a href="/portfolio/" class="{% if not data.language %}active{% endif %} list-group-item">All</a>
-					{% for lang in data.languages %}
-						<a href="/portfolio/{{ lang.key }}" class="{% if data.language and data.language.id == lang.id %}active{% endif %} list-group-item">{{ lang.name }}</a>
+				<div class="blog">
+					{% for project in data.projects.results %}
+						{{ showProject(project) }}
 					{% endfor %}
 				</div>
-			</div>
+				{% if data.project.totalPages > 1 %}
+					<ul class="pagination">
+						{% if data.projects.previous %}
+							<li>
+								<a href="?page={{ data.projects.previous }}">
+									<<
+								</a>
+							</li>
+						{% else %}
+							<li class="disabled">
+								<a href="?page=1">
+									<<
+								</a>
+							</li>
+														{% endif %}
+							{% for p in data.projects.pages %}
+								<li class="{% if data.projects.currentPage == p %}active{% endif %}">
+									<a href="?page={% if p == "..." %}{% if i %}{{ data.projects.totalPages }}{% else %}1{% endif %}{% else %}{{ p }}{% endif %}">{{ p }}</a>
+								</li>
+							{% endfor %}
+						{% if data.projects.next %}
+							<li>
+								<a href="?page={{ data.projects.next }}">
+									>>
+								</a>
+							</li>
+						{% else %}
+							<li class="disabled">
+								<a href="?page={{ data.projects.totalPages }}">
+									>>
+								</a>
+							</li>
+						{% endif %}
+					</ul>
+				{% endif %}
+			{% else %}
+				{% if data.language %}
+					<h3 class="text-muted">There are no projects in the category {{ data.language.name }}.</h3>
+				{% else %}
+					<h3 class="text-muted">There are no projects yet.</h3>
+				{% endif %}
 			{% endif %}
-		</div>
+		{% endif %}
 	</div>
 {% endblock %}
