@@ -115,9 +115,9 @@
 			<div class="col-sm-4 col-md-3">
 				<h2>Languages</h2>
 				<div class="list-group" style="margin-top: 70px;">
-					<a href="/portfolio/" class="{% if not data.language %}active{% endif %} list-group-item">All Languages</a>
+					<a href="/journal/" class="{% if not data.language %}active{% endif %} list-group-item">All Languages</a>
 					{% for lang in data.languages %}
-						<a href="/portfolio/{{ lang.key }}" class="{% if data.language and data.language.id == lang.id %}active{% endif %} list-group-item">{{ lang.name }}</a>
+						<a href="/journal/{{ lang.key }}" class="{% if data.language and data.language.id == lang.id %}active{% endif %} list-group-item">{{ lang.name }}</a>
 					{% endfor %}
 				</div>
 			</div>
