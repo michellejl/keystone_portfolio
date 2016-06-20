@@ -37,6 +37,9 @@ header {
 #body h2 {
   margin-bottom: 15px; }
 
+p {
+  margin-bottom: 10px; }
+
 html {
   box-sizing: border-box; }
 

@@ -6,7 +6,9 @@
 			<h1>{{ data.page.title }}</h1>
 		</header>
 		
-		{{ data.page.content | raw }}
+		<div class="brick">
+			{{ data.page.content | raw }}
+		</div>
 		
 	</div>
 {% endblock %}
