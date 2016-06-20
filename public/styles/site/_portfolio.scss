@@ -40,5 +40,13 @@ a.skill {
   li.block {
 	@include span-columns(4);
 	@include omega(3n);
+	@media (max-width: 1050px) {
+	  @include span-columns(6);
+	  @include omega(2n);
+	}
+	@media (max-width: 600px) {
+	  @include span-columns(12);
+	  @include omega(1n);
+	}
   }
 }
