@@ -8,6 +8,9 @@ h1, h2, h3, h4, h5, h6, button {
 button {
   font-size: 2em; }
 
+h1 {
+  border: 2px solid #333; }
+
 h2 {
   border-bottom: 2px solid #333;
   margin-bottom: 5px; }
@@ -19,8 +22,7 @@ header {
     margin: 5px;
     padding: 5px 5px 2px;
     background: #fff;
-    display: inline-block;
-    border: 2px solid #333; }
+    display: inline-block; }
   header h1 {
     font-size: 4em; }
     header h1 a {
@@ -178,7 +180,6 @@ img {
 .thumb a {
   background: #5271A4;
   color: #fff;
-  border-radius: 5px;
   display: inline-block;
   padding: 5px;
   margin: 10px 2px; }

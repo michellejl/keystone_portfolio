@@ -8,7 +8,10 @@ h1, h2, h3, h4, h5, h6, button {
 button {
   font-size: 2em;
 }
+h1 {
 
+  border: 2px solid $dark-grey;
+}
 h2 {
   border-bottom: 2px solid $dark-grey;
   margin-bottom: 5px;
@@ -21,7 +24,6 @@ header {
 	padding: 5px 5px 2px;
 	background: #fff;
 	display: inline-block;
-	border: 2px solid $dark-grey;
   }
   h1 {
 	font-size: 4em;
