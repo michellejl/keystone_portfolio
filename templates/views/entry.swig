@@ -2,48 +2,50 @@
 
 {% block content %}
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-				<article>
-					<p>
-						<a href="/journal">&larr; back to the journal</a>
-					</p>
-					<hr>
-					{% if not data.entry %}
-						<h2>Invalid Entry.</h2>
-					{% else %}
-						<header>
-							<h1>{{ data.entry.title }}</h1>
-							<h5>Posted</h5>
-							{% if data.entry.publishedDate %}
-								on {{ data.entry._.publishedDate.format("MMMM Do, YYYY") }}
-							{% endif %}
-							{% if data.entry.languages and data.entry.languages.length %}
-								in
-								{% for lang in data.entry.languages %}
-									<a href="/journal/{{ lang.key }}">{{ lang.name }}</a>
-									{% if loop.index < data.entry.languages.length - 1 %}, {% endif %}
-								{% endfor %}
-							{% endif %}
-							{% if data.entry.author %}
-								by {{ data.entry.author.name.first }}
-							{% endif %}
-						</header>
-						<div class="post">
-							{{ data.entry.description | raw }}
 
-							{% if data.entry.languages and data.entry.languages.length %}
-								Languages / Tools Used:
-								{% for lang in data.entry.languages %}
-									<a href="/portfolio/{{ lang.key }}">{{ lang.name }}</a>
-									{% if loop.index < data.entry.languages.length - 1 %} {% endif %}
-								{% endfor %}
-							{% endif %}
-							
-						</div>
+		<p>
+			<a href="/journal">&larr; back to the journal</a>
+		</p>
+		<hr>
+		{% if not data.entry %}
+		<h2>Invalid Entry.</h2>
+		{% else %}
+			
+		<header>
+			<h1>{{ data.entry.title }}</h1><br />
+			<h5>Posted
+				{% if data.entry.publishedDate %}
+					on {{ data.entry._.publishedDate.format("MMMM Do, YYYY") }}
+				{% endif %}
+				{% if data.entry.author %}
+					by {{ data.entry.author.name.first }}
+				{% endif %}
+			</h5>
+		</header>
+
+		<div class="post brick">
+			<div class="row">
+				<div class="split">
+					{% if data.entry.languages and data.entry.languages.length %}
+						<h2>Languages / Tools Worked On</h2>
+						{% for lang in data.entry.languages %}
+							<a href="/journal/{{ lang.key }}">{{ lang.name }}</a>
+							{% if loop.index < data.entry.languages.length - 1 %}, {% endif %}
+						{% endfor %}
 					{% endif %}
-				</article>
+				</div>
+				<div class="split">
+					{% if data.project.links.github %}
+						<h2>See my progress on this project:</h2>
+						<a href="{{ data.project.links.github }}" class="btn">GitHub</a>
+					{% else %}
+						<p>&nbsp;</p>
+					{% endif %}
+				</div>
 			</div>
+			<h2>What I Did Today:</h2>
+			{{ data.entry.description | raw }}
 		</div>
+		{% endif %}
 	</div>
 {% endblock %}

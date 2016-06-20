@@ -8,7 +8,7 @@ exports = module.exports = function (req, res) {
 	// Set locals
 	locals.section = 'journal';
 	locals.filters = {
-		entries: req.params.entry
+		entry: req.params.entry
 	};
 	locals.data = {
 		entries: []
