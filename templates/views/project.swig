@@ -24,25 +24,31 @@
 			<div class="post brick">
 				{% if data.project.codePen %}
 					{{ data.project.codePen | raw }}
-				{% elseif data.project.image.exists %}	
+				{% elseif data.project.image.exists %}
 					<div class="image-wrap">
 						<img src="{{ data.project._.image.fit(750,450) }}" />
 					</div>
 				{% endif %}
-
-				{% if data.project.languages and data.project.languages.length %}
-					<h2>Languages / Tools Used:</h2>
-					{% for lang in data.project.languages %}
-						<a href="/portfolio/{{ lang.key }}" class="skill">{{ lang.name }}</a>
-						{% if loop.index < data.project.languages.length - 1 %} {% endif %}
-					{% endfor %}
-				{% endif %}
-
-				<h2>User Stories:</h2>
-				{{ data.project.userStories | raw }}
+				
+				<div class="row">
+					<div class="split">
+						{% if data.project.languages and data.project.languages.length %}
+							<h2>Languages / Tools Used:</h2>
+							{% for lang in data.project.languages %}
+								<a href="/portfolio/{{ lang.key }}" class="skill">{{ lang.name }}</a>
+								{% if loop.index < data.project.languages.length - 1 %} {% endif %}
+							{% endfor %}
+						{% endif %}
+					</div>
+					<div class="split">
+						<h2>User Stories:</h2>
+						{{ data.project.userStories | raw }}
+					</div>
+				</div>
+				
 				<h2>Project Description:</h2>
 				{{ data.project.description.long | raw }}
-				
+
 
 				{% if data.project.links.github %}
 					<a href="{{ data.project.links.github }}" class="btn">GitHub</a>
@@ -50,11 +56,10 @@
 				{% if data.project.links.demo %}
 					<a href="{{ data.project.links.demo }}" class="btn">Demo</a>
 				{% endif %}
-
 				
-						</div>
-						
-					{% endif %}
+			</div>
+			
+		{% endif %}
 	</div>
 {% endblock %}
 

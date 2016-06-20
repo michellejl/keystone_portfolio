@@ -9,6 +9,7 @@ header h5 {
 }
 
 .post {
+  
   img {
 	display: block;
 	margin: 10px auto;
@@ -18,5 +19,11 @@ header h5 {
   }
   h2 {
 	margin-top: 50px;
+  }
+  .row {
+	@include outer-container;
+	.split {
+	  @include span-columns(6);
+	}
   }
 }

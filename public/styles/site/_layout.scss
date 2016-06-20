@@ -29,6 +29,7 @@ img {
   }
   .brick {
 	background: rgba(255,255,255,.9);
+	box-sizing: border-box;
 	margin: 10px 0;
 	padding: 20px;
 	a.btn {

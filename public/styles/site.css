@@ -114,6 +114,7 @@ img {
 
 #body .brick {
   background: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
   margin: 10px 0;
   padding: 20px; }
   #body .brick a.btn {
@@ -222,3 +223,19 @@ header h5 {
 
 .post h2 {
   margin-top: 50px; }
+
+.post .row {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  .post .row::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .post .row .split {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .post .row .split:last-child {
+      margin-right: 0; }
