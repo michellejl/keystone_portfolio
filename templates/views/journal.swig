@@ -43,7 +43,7 @@
 	<div class="container">
 
 		{% if data.languages.length %}
-			<a href="/journal/" class="skill {% if not data.language %}active{% endif %} list-group-item">All Languages</a>
+			<a href="/journal/" class="skill {% if not data.language %}active{% endif %} list-group-item">All</a>
 			{% for lang in data.languages %}
 				<a href="/journal/{{ lang.key }}" class="skill {% if data.language and data.language.id == lang.id %}active{% endif %} list-group-item">{{ lang.name }}</a>
 			{% endfor %}
