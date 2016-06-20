@@ -11,6 +11,7 @@ var Entry = new keystone.List('Entry', { inherits: Base });
 Entry.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	description: { type: Types.Html, wysiwyg: true, height: 150 },
+	short: { type: Types.Html, wysiwyg: true, height: 100 },
 	github: { type: String },
 	languages: { type: Types.Relationship, ref: 'Language', many: true }
 });

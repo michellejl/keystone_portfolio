@@ -36,7 +36,7 @@ a.skill {
 	background: $mjl_green;
   }
 }
-.portfolio {
+.portfolio, .journal, .blog {
   @include outer-container;
   li.block {
 	@include span-columns(4);

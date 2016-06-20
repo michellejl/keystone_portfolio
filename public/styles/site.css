@@ -188,24 +188,24 @@ a.skill {
   a.skill:hover {
     background: #6E9153; }
 
-.portfolio {
+.portfolio, .journal, .blog {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto; }
-  .portfolio::after {
+  .portfolio::after, .journal::after, .blog::after {
     clear: both;
     content: "";
     display: table; }
-  .portfolio li.block {
+  .portfolio li.block, .journal li.block, .blog li.block {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 31.76157%; }
-    .portfolio li.block:last-child {
+    .portfolio li.block:last-child, .journal li.block:last-child, .blog li.block:last-child {
       margin-right: 0; }
-    .portfolio li.block:nth-child(3n) {
+    .portfolio li.block:nth-child(3n), .journal li.block:nth-child(3n), .blog li.block:nth-child(3n) {
       margin-right: 0; }
-    .portfolio li.block:nth-child(3n+1) {
+    .portfolio li.block:nth-child(3n+1), .journal li.block:nth-child(3n+1), .blog li.block:nth-child(3n+1) {
       clear: left; }
 
 a.white {

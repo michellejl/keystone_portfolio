@@ -1,14 +1,11 @@
 {% extends "../layouts/default.swig" %}
 
 {% macro showEntry(entry) %}
-	<div class="post" data-ks-editable="editable(user, { list: 'Entry', id: entry.id })">
+	<div class="row brick">
 		<h2>
 			<a href="/journal/entry/{{ entry.slug }}">{{ entry.title }}</a>
 		</h2>
-		<p class="lead text-muted">Posted
-			{% if entry.publishedDate %}
-				on {{ entry._.publishedDate.format("MMMM Do, YYYY") }}
-			{% endif %}
+		<div class="thumb">
 			{% if entry.languages and entry.languages.length %}
 				in
 				{% for lang in entry.languages %}
@@ -16,19 +13,19 @@
 					{% if loop.index < entry.languages.length - 1 %}, {% endif %}
 				{% endfor %}
 			{% endif %}
-			{% if entry.author %}
-				by {{ entry.author.name.first }}
-			{% endif %}
-		</p>
-		{% if entry.image.exists %}
-			<img src="{{ entry._.image.fit(160,160) }}" class="img pull-right">
-		{% endif %}
-		<p>{{ entry.description | safe }}</p>
-		{% if entry.userStories %}
+		</div>
+		<div class="post" data-ks-editable="editable(user, { list: 'Entry', id: entry.id })">
+			<p class="data">Posted
+				{% if entry.publishedDate %}
+					on {{ entry._.publishedDate.format("MMMM Do, YYYY") }}
+				{% endif %}
+			</p>
+	
+			<p>{{ entry.short | safe }}</p>
 			<p class="read-more">
 				<a href="/journal/entry/{{ entry.slug }}">Read more...</a>
 			</p>
-		{% endif %}
+		</div>
 	</div>
 {% endmacro %}
 
@@ -44,29 +41,48 @@
 
 {% block content %}
 	<div class="container">
+
+		{% if data.languages.length %}
+			<a href="/journal/" class="skill {% if not data.language %}active{% endif %} list-group-item">All Languages</a>
+			{% for lang in data.languages %}
+				<a href="/journal/{{ lang.key }}" class="skill {% if data.language and data.language.id == lang.id %}active{% endif %} list-group-item">{{ lang.name }}</a>
+			{% endfor %}
+		{% endif %}
+		
+		{% if filters.language and not data.language %}
+		<h3 class="text-muted">Invalid Language.</h3>
+		{% else %}
+		{% if data.entries.results.length %}
+		{% if data.entries.totalPages > 1 %}
+			<h4 class="text-weight-normal">Showing
+				<strong>{{ data.entries.first }}</strong>
+				to
+				<strong>{{ data.entries.last }}</strong>
+				of
+				<strong>{{ data.entries.total }}</strong>
+				projects.
+			</h4>
+		{% else %}
+			<!---
+			<h4 class="text-weight-normal">Showing {{ utils.plural(data.entries.results.length, "* entry") }}.</h4>
+			--->
+		{% endif %}
+
+		<div class="journal">
+			<ul>
+				{% for entry in data.entries.results %}
+					<li class="block">{{ showEntry(entry) }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+		
+		
+		
+		
 		<div class="row">
 			<div class="col-sm-8 col-md-9">
-				{% if filters.language and not data.language %}
-					<h3 class="text-muted">Invalid Language.</h3>
-				{% else %}
-					{% if data.entries.results.length %}
-						{% if data.entries.totalPages > 1 %}
-							<h4 class="text-weight-normal">Showing 
-								<strong>{{ data.entries.first }}</strong>
-								to 
-								<strong>{{ data.entries.last }}</strong>
-								of 
-								<strong>{{ data.entries.total }}</strong>
-								projects.
-							</h4>
-						{% else %}
-							<h4 class="text-weight-normal">Showing {{ utils.plural(data.entries.results.length, "* entry") }}.</h4>
-						{% endif %}
-						<div class="blog">
-							{% for entry in data.entries.results %}
-								{{ showEntry(entry) }}
-							{% endfor %}
-						</div>
+				
+						
 						{% if data.project.totalPages > 1 %}
 							<ul class="pagination">
 								{% if data.entries.previous %}
@@ -111,17 +127,7 @@
 					{% endif %}
 				{% endif %}
 			</div>
-			{% if data.languages.length %}
-			<div class="col-sm-4 col-md-3">
-				<h2>Languages</h2>
-				<div class="list-group" style="margin-top: 70px;">
-					<a href="/journal/" class="{% if not data.language %}active{% endif %} list-group-item">All Languages</a>
-					{% for lang in data.languages %}
-						<a href="/journal/{{ lang.key }}" class="{% if data.language and data.language.id == lang.id %}active{% endif %} list-group-item">{{ lang.name }}</a>
-					{% endfor %}
-				</div>
-			</div>
-			{% endif %}
+			
 		</div>
 	</div>
 {% endblock %}

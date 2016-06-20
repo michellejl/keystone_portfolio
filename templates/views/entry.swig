@@ -9,7 +9,7 @@
 						<a href="/journal">&larr; back to the journal</a>
 					</p>
 					<hr>
-					{% if not data.post %}
+					{% if not data.entry %}
 						<h2>Invalid Entry.</h2>
 					{% else %}
 						<header>
