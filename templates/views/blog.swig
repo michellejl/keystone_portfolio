@@ -11,7 +11,6 @@
 			{% endif %}
 			Skills:
 			{% if post.categories and post.categories.length %}
-				<br>in
 				{% for cat in post.categories %}
 					<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>
 					{% if loop.index < post.categories.length - 1 %}, {% endif %}

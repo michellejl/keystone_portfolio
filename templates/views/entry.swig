@@ -4,7 +4,7 @@
 	<div class="container">
 
 		<p>
-			<a href="/journal">&larr; back to the journal</a>
+			<a href="/journal" class="white">&larr; back to the journal</a>
 		</p>
 		<hr>
 		{% if not data.entry %}
