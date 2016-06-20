@@ -51,6 +51,9 @@ img {
   margin: 0 auto;
 }
 
+.brick.split:first-child {
+  margin-right: 15px !important;
+}
 
 #footer {
   padding: 10px 0;

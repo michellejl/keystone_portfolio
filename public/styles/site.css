@@ -2,8 +2,11 @@ body {
   font-family: 'Maven Pro', sans-serif;
   font-size: 16px; }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, button {
   font-family: 'Josefin Slab', serif; }
+
+button {
+  font-size: 2em; }
 
 h2 {
   border-bottom: 2px solid #333;
@@ -134,6 +137,9 @@ img {
   width: 75%;
   margin: 0 auto; }
 
+.brick.split:first-child {
+  margin-right: 15px !important; }
+
 #footer {
   padding: 10px 0;
   height: 100px;
@@ -242,3 +248,74 @@ header h5 {
     width: 48.82117%; }
     .post .row .split:last-child {
       margin-right: 0; }
+
+ul.social {
+  list-style-type: none;
+  margin-left: 0; }
+  ul.social li {
+    line-height: 1.5em;
+    padding-bottom: 10px;
+    font-weight: bold; }
+    ul.social li a {
+      color: #5271A4; }
+      ul.social li a:hover {
+        color: #6E9153; }
+    ul.social li i {
+      font-size: 1.5em;
+      padding-right: 10px; }
+
+fieldset {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+legend {
+  font-weight: 600;
+  margin-bottom: 5px;
+  padding: 0; }
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px; }
+
+input,
+select,
+textarea {
+  display: block; }
+
+textarea {
+  resize: vertical; }
+
+[type="checkbox"],
+[type="radio"] {
+  display: inline;
+  margin-right: 5px; }
+
+[type="file"] {
+  margin-bottom: 5px;
+  width: 100%; }
+
+select {
+  margin-bottom: 5px;
+  max-width: 100%;
+  width: auto;
+  font-size: 1.2em; }
+
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea,
+select[multiple] {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1.2em; }
+
+#flash-messages {
+  margin: 25px auto !important; }
+
+button {
+  padding: 10px 20px;
+  border: 2px solid #5271A4;
+  background: transparent;
+  margin-top: 25px; }
+  button:hover {
+    border-color: #6E9153; }

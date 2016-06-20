@@ -1,0 +1,88 @@
+ul.social {
+  list-style-type: none;
+  margin-left: 0;
+  li {
+	line-height: 1.5em;
+	padding-bottom: 10px;
+	font-weight: bold;
+	a {
+	  color: $mjl_blue;
+	  &:hover {
+		color: $mjl_green;
+	  }
+	}
+	i {
+	  font-size: 1.5em;
+	  padding-right: 10px;
+	}
+  }
+}
+
+fieldset {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-weight: 600;
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+  display: block;
+}
+
+textarea {
+  resize: vertical;
+}
+[type="checkbox"],
+[type="radio"] {
+  display: inline;
+  margin-right: 5px;
+}
+
+[type="file"] {
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+select {
+  margin-bottom: 5px;
+  max-width: 100%;
+  width: auto;
+  font-size: 1.2em;
+}
+
+#{$all-text-inputs},
+select[multiple] {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1.2em;
+
+  
+}
+
+#flash-messages {
+  margin: 25px auto !important;
+}
+
+button {
+  padding: 10px 20px;
+  border: 2px solid $mjl_blue;
+  background: transparent;
+  margin-top: 25px;
+  &:hover {
+	border-color: $mjl_green;
+  }
+}

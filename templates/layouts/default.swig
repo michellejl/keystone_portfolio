@@ -12,7 +12,8 @@
 		
 		<!-- Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700|Maven+Pro' rel='stylesheet' type='text/css'>
-
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		
 		{# Customise the stylesheet for your site by editing /public/styles/site.sass #}
 		<link href="/styles/site.css" rel="stylesheet">
 

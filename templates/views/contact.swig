@@ -2,17 +2,18 @@
 
 {% block intro %}
 	<div class="container">
-		<h1>Contact Us</h1>
+		<h1>Contact Me</h1>
 	</div>
 {% endblock %}
 
 {% block content %}
-	<div class="container">
+	<div class="container post">
 		{% if enquirySubmitted %}
 			<h3>Thanks for getting in touch.</h3>
 		{% else %}
 			<div class="row">
-				<div class="col-sm-8 col-md-6">
+				<div class="brick split">
+					<h2>Send Me a Note:</h2>
 					<form method="post">
 						<input type="hidden" name="action" value="contact">
 						{% set className = "" %}
@@ -45,6 +46,7 @@
 						{% if validationErrors.enquiryType %}
 							{% set className = "has-error" %}
 						{% endif %}
+						<!---
 						<div class="form-group {{ className }}">
 							<label>
 								<span>What are you contacting us about?</span>
@@ -59,6 +61,7 @@
 									{% endfor %}
 								</select>
 						</div>
+						--->
 						{% set className = "" %}
 						{% if validationErrors.message %}
 							{% set className = "has-error" %}
@@ -66,9 +69,9 @@
 						<div class="form-group {{ className }}">
 							<label>
 								<span>Message</span>
-								<textarea name="message" placeholder="Leave us a message..." rows="4" class="form-control">
-									{{ formData.message }}
-								</textarea>
+						<textarea name="message" placeholder="Leave us a message..." rows="4" class="form-control">
+							{{ formData.message }}
+						</textarea>
 							</label>
 						</div>
 						<div class="form-actions">
@@ -76,6 +79,30 @@
 						</div>
 					</form>
 				</div>
+				<div class="brick split">
+					<h2>Let's Get Social:</h2>
+					<ul class="social">
+						<li>
+							<a href="mailto:michellejl@live.com">
+								<i class="fa fa-envelope-o" aria-hidden="true"></i>
+								michellejl@live.com
+							</a>
+						</li>
+						<li>
+							<a href="https://github.com/michellejl/" target="_blank">
+								<i class="fa fa-github" aria-hidden="true"></i>
+								GitHub.com/MichelleJL
+							</a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/in/michellejl" target="_blank">
+								<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+								Linkedin.com/in/MichelleJL
+							</a>
+						</li>
+					</ul>
+				</div>
+				
 			</div>
 		{% endif %}
 	</div>

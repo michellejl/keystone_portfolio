@@ -1,6 +1,6 @@
 {%- macro renderMessages(messages) -%}
 	{%- if messages -%}
-		<div id="flash-messages" class="container">
+		<div id="flash-messages" class="container brick">
 			{%- for message in messages.info -%}
 				{{ renderMessage(message, "info") }}
 			{%- endfor -%}
