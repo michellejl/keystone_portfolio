@@ -3,6 +3,12 @@ header {
 	font-size: 1.2em;
 	font-weight: bold;
 	padding: 0 5%;
+	@media (max-width: 800px) {
+	  display: block;
+	}
+	@media (max-width: 600px) {
+	  display: none;
+	}
 	a {
 	  color: #fff;
 	}

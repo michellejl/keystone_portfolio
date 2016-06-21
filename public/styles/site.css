@@ -55,6 +55,12 @@ header .contact-item {
   font-size: 1.2em;
   font-weight: bold;
   padding: 0 5%; }
+  @media (max-width: 800px) {
+    header .contact-item {
+      display: block; } }
+  @media (max-width: 600px) {
+    header .contact-item {
+      display: none; } }
   header .contact-item a {
     color: #fff; }
 
@@ -69,17 +75,31 @@ a {
   background: #5271A4; }
   .navbar ul {
     list-style-type: none;
-    padding: 50px;
+    padding: 50px 0;
     margin: 0;
     border-top: 8px solid #fff;
     border-bottom: 8px solid #fff; }
     .navbar ul li {
       display: inline-block; }
+      @media (max-width: 650px) {
+        .navbar ul li {
+          display: block;
+          margin: 10px 0;
+          width: 100%; } }
       .navbar ul li a {
         background: #fff;
         padding: 10px 40px;
         margin: 0 20px;
         font-size: 1.2em; }
+        @media (max-width: 1050px) {
+          .navbar ul li a {
+            margin: 0 10px;
+            padding: 10px 20px; } }
+        @media (max-width: 650px) {
+          .navbar ul li a {
+            display: block;
+            width: 100%;
+            margin: 0; } }
 
 * {
   margin: 0;
@@ -276,6 +296,14 @@ header h5 {
     width: 48.82117%; }
     .post .row .split:last-child {
       margin-right: 0; }
+    @media (max-width: 800px) {
+      .post .row .split {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%; }
+        .post .row .split:last-child {
+          margin-right: 0; } }
 
 ul.social {
   list-style-type: none;

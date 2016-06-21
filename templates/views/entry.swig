@@ -29,7 +29,7 @@
 					{% if data.entry.languages and data.entry.languages.length %}
 						<h2>Languages / Tools Worked On</h2>
 						{% for lang in data.entry.languages %}
-							<a href="/journal/{{ lang.key }}">{{ lang.name }}</a>
+							<a href="/journal/{{ lang.key }}" class="skill">{{ lang.name }}</a>
 							{% if loop.index < data.entry.languages.length - 1 %}, {% endif %}
 						{% endfor %}
 					{% endif %}

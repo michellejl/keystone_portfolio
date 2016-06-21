@@ -24,6 +24,9 @@ header h5 {
 	@include outer-container;
 	.split {
 	  @include span-columns(6);
+	  @media (max-width: 800px) {
+		@include span-columns(12);
+	  }
 	}
   }
 }
