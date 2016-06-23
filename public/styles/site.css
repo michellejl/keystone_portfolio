@@ -30,7 +30,8 @@ header {
   header h2 {
     color: #6E9153;
     font-size: 3em;
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    border: 2px solid #333; }
 
 #body h1 {
   margin: 5px;
