@@ -29,7 +29,9 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+
+	'mongo': process.env.MONGODB_URI || 'mongodb://localhost/portfolio_db'
 
 });
 
