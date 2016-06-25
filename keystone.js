@@ -32,7 +32,7 @@ keystone.init({
 	'user model': 'User',
 
 	'wysiwyg images': true,
-	'wysiwyg cloudinary images': true
+	'wysiwyg cloudinary images': true,
 
 	'mongo': process.env.MONGODB_URI || 'mongodb://localhost/portfolio_db'
 
