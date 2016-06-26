@@ -34,12 +34,8 @@
 					{% endif %}
 				</div>
 				<div class="split">
-					{% if data.project.links.github %}
-						<h2>See my progress on this project:</h2>
-						<a href="{{ data.project.links.github }}" class="btn" target="_blank">GitHub</a>
-					{% else %}
-						<p>&nbsp;</p>
-					{% endif %}
+					<h2>See my progress on this project:</h2>
+					<a href="{{ data.project.github }}" class="btn" target="_blank">GitHub</a>
 				</div>
 			</div>
 			<h2>What I Did Today:</h2>
