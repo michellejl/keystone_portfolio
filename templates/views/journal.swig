@@ -10,7 +10,6 @@
 				in
 				{% for lang in entry.languages %}
 					<a href="/journal/{{ lang.key }}">{{ lang.name }}</a>
-					{% if loop.index < entry.languages.length - 1 %}, {% endif %}
 				{% endfor %}
 			{% endif %}
 		</div>

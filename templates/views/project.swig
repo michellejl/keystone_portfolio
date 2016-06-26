@@ -36,7 +36,6 @@
 							<h2>Languages / Tools Used:</h2>
 							{% for lang in data.project.languages %}
 								<a href="/portfolio/{{ lang.key }}" class="skill">{{ lang.name }}</a>
-								{% if loop.index < data.project.languages.length - 1 %} {% endif %}
 							{% endfor %}
 						{% endif %}
 					</div>
@@ -51,10 +50,10 @@
 
 
 				{% if data.project.links.github %}
-					<a href="{{ data.project.links.github }}" class="btn">GitHub</a>
+					<a href="{{ data.project.links.github }}" class="btn" target="_blank">GitHub</a>
 				{% endif %}
 				{% if data.project.links.demo %}
-					<a href="{{ data.project.links.demo }}" class="btn">Demo</a>
+					<a href="{{ data.project.links.demo }}" class="btn" target="_blank">Demo</a>
 				{% endif %}
 				
 			</div>

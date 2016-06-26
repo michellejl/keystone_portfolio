@@ -30,14 +30,13 @@
 						<h2>Languages / Tools Worked On</h2>
 						{% for lang in data.entry.languages %}
 							<a href="/journal/{{ lang.key }}" class="skill">{{ lang.name }}</a>
-							{% if loop.index < data.entry.languages.length - 1 %}, {% endif %}
 						{% endfor %}
 					{% endif %}
 				</div>
 				<div class="split">
 					{% if data.project.links.github %}
 						<h2>See my progress on this project:</h2>
-						<a href="{{ data.project.links.github }}" class="btn">GitHub</a>
+						<a href="{{ data.project.links.github }}" class="btn" target="_blank">GitHub</a>
 					{% else %}
 						<p>&nbsp;</p>
 					{% endif %}
