@@ -26,9 +26,6 @@ Project.add({
 	languages: { type: Types.Relationship, ref: 'Language', many: true }
 });
 
-Project.schema.virtual('description.long').get(function () {
-	return this.description.long || this.description.short;
-});
 
 
 Project.defaultColumns = 'title, state|20%, publishedDate|20%';

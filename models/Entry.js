@@ -16,9 +16,6 @@ Entry.add({
 	languages: { type: Types.Relationship, ref: 'Language', many: true }
 });
 
-Entry.schema.virtual('description').get(function () {
-	return this.description || this.short;
-});
 
 Entry.defaultColumns = 'title, state|20%, publishedDate|20%';
 Entry.schema.statics.view_name= 'entry';
