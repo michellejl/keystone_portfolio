@@ -1,10 +1,22 @@
 a {
   text-decoration: none;
+  font-weight: bold;
   &:link, &:active, &:visited {
-	color: $dark-grey;
+	color: $mjl_blue;
+  }
+  &:hover {
+	color: $mjl_green;
+	border-color: $mjl_green;
+	text-decoration: underline;
   }
 }
 
+#footer a {
+  color: $dark-grey;
+  &:hover {
+	color: #fff;
+  }
+}
 
 .navbar {
   text-align: center;

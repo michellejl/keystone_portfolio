@@ -66,9 +66,19 @@ header .contact-item {
     color: #fff; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  font-weight: bold; }
   a:link, a:active, a:visited {
-    color: #333; }
+    color: #5271A4; }
+  a:hover {
+    color: #6E9153;
+    border-color: #6E9153;
+    text-decoration: underline; }
+
+#footer a {
+  color: #333; }
+  #footer a:hover {
+    color: #fff; }
 
 .navbar {
   text-align: center;
